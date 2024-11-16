@@ -1,0 +1,188 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWDMK20ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BVWDMK20ZJ');
+  </script>
+
+  <link rel="stylesheet" href="https://puffer.stanford.edu/static/puffer/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://puffer.stanford.edu/static/puffer/css/common.css">
+  <link rel="stylesheet" href="https://puffer.stanford.edu/static/puffer/css/player.css">
+  <title>Puffer</title>
+  <link rel="icon" href="https://puffer.stanford.edu/static/puffer/dist/images/favicon.ico">
+
+  <!-- Reddit Conversion Pixel -->
+  <script>
+  !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_3vk4c');rdt('track', 'PageVisit');
+  </script>
+  <!-- DO NOT MODIFY -->
+  <!-- End Reddit Conversion Pixel -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  
+
+<nav class="navbar navbar-expand-md navbar-light border-bottom py-3">
+  <div class="container d-flex">
+    <a class="navbar-brand" href="/">
+      <img src="https://puffer.stanford.edu/static/puffer/dist/images/logo-text.svg"
+           alt="Puffer" height="25px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main"
+            aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/player/">Watch TV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq/">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/StanfordSNR/puffer">Source Code</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research Study</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="https://puffer.stanford.edu/static/puffer/documents/puffer-paper.pdf">Research Paper</a>
+            <a class="dropdown-item" href="https://youtu.be/63aECX2MZvY">Conference Talk</a>
+            <a class="dropdown-item" href="/results/">Experiment Results</a>
+            <a class="dropdown-item" href="/data-description/">Data Description</a>
+            <a class="dropdown-item" href="/bola/">BOLA</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="ml-auto">
+      
+      <a role="button" class="btn btn-link" href="/accounts/logout/">Sign out</a>
+      <span style="vertical-align:middle;">testfireapp</span>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Player -->
+  <div class="container py-4">
+    <!-- Success or error messages -->
+    
+
+    <div class="row">
+      <div class="col-md-10 mt-3">
+        <ul class="list-unstyled" id="player-error-list"></ul>
+
+        <div class="embed-responsive embed-responsive-16by9">
+          <div id="tv-container">
+            <video id="tv-video" muted></video>
+            <div id="tv-spinner"></div>
+            <div id="tv-play-button"><div id="tv-play-button-inner"></div></div>
+            <div id="tv-controls">
+              <button type="button" id="mute-button"></button>
+              <input type="range" id="volume-bar" min="0" max="1" step="0.05" value="0">
+              <button type="button" id="full-screen-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 mt-3">
+        <div class="list-group" id="channel-list">
+          <button type="button" name="cbs" class="list-group-item list-group-item-action">
+            KPIX (CBS)
+          </button>
+          <button type="button" name="kpyx" class="list-group-item list-group-item-action">
+            KPIX+ (CBS)
+          </button>
+          <button type="button" name="nbc" class="list-group-item list-group-item-action">
+            KNTV (NBC)
+          </button>
+          <button type="button" name="fox" class="list-group-item list-group-item-action">
+            KTVU (Fox)
+          </button>
+          <button type="button" name="pbs" class="list-group-item list-group-item-action">
+            KQED (PBS)
+          </button>
+          <button type="button" name="kron" class="list-group-item list-group-item-action">
+            KRON (CW)
+          </button>
+          <button type="button" name="abc" class="list-group-item list-group-item-action">
+            KGO (ABC)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-10">
+        <div class="alert alert-info" role="alert" id="unmute-message">
+          Video is muted by default; <u id="unmute-here">unmute here</u></span>
+          or use the player control bar.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex flex-row button-row">
+      <div class="mx-1">
+        <img src="https://puffer.stanford.edu/static/puffer/dist/images/forum.svg" class="icon">
+        <a href="https://groups.google.com/forum/#!forum/puffer-stanford">Contact us</a>
+      </div>
+      <div class="mx-1">
+        <img src="https://puffer.stanford.edu/static/puffer/dist/images/wrench.svg" class="icon">
+        <a data-toggle="collapse" href="#debug-info"
+           aria-expanded="false" aria-controls="debug-info">
+          Debug info
+        </a>
+      </div>
+      <div class="mx-1">
+        <a class="github-button" href="https://github.com/stanfordsnr/puffer" aria-label="Star stanfordsnr/puffer on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+      </div>
+    </div>
+    <div class="collapse py-2" id="debug-info">
+      Video playback buffer (s): <span id="video-buf">N/A</span><br>
+      Video resolution: <span id="video-res">N/A</span><br>
+      Video encoding setting (CRF): <span id="video-crf">N/A</span><br>
+      Video quality (SSIM dB): <span id="video-ssim">N/A</span><br>
+      Video bitrate (kbps): <span id="video-bitrate">N/A</span>
+    </div>
+  </div>
+
+  <script src="https://puffer.stanford.edu/static/puffer/dist/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://puffer.stanford.edu/static/puffer/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="player.js"></script>
+  
+  <script type="text/javascript">
+    init_player("{\u0022session_key\u0022: \u0022ftu174dw0fig7swzzvnjowrico0izo54\u0022, \u0022username\u0022: \u0022testfireapp\u0022, \u0022debug\u0022: false, \u0022port\u0022: \u002250025\u0022}", "Yk20y8CsfErIOc67yzAf0SW8y0ucBrtu8Hp2UaCHv9hqpGFcDyzlxykGUpTxYyXF");
+  </script>
+  
+
+  <script>
+    gtag('event', 'conversion', {'send_to': 'AW-771906819/F7YICLutpZIBEIO6ifAC'});
+    rdt('track', 'ViewContent');
+  </script>
+</body>
+
+</html>
